@@ -1,12 +1,12 @@
 # 2024-May-22nd-Task-Submit
 1) 초콜릿 자르기(2163번)
-'''#include <stdio.h>
+2) ```#include <stdio.h>
 int main()
 {
     int N, M;
     scanf("%d %d", &N, &M);
     printf("%d", N * M - 1);
-}'''
+}```
 
 N과 M을 입력받고, N * M - 1이 최솟값인 것을 구해내서 답을 출력하게 했다.
 2) 손가락 게임(31866번)
