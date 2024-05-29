@@ -1,6 +1,8 @@
 # 2024-May-22nd-Task-Submit
 1) 초콜릿 자르기(2163번)
-# include <stdio.h>
+
+   
+#include <stdio.h>
 int main()
 {
     int N, M;
@@ -9,6 +11,8 @@ int main()
 }
 N과 M을 입력받고, N * M - 1이 최솟값인 것을 구해내서 답을 출력하게 했다.
 2) 손가락 게임(31866번)
+
+
 #include <stdio.h>
 
 int main() {
@@ -33,6 +37,8 @@ int main() {
 }
 가위바위보 2개를 입력받고, if와 else if를 이용해 문제를 풀었다.
 3) 과민성 대장 증후군(31831번)
+
+
 #include <stdio.h>
 
 int main() {
@@ -67,7 +73,9 @@ int main() {
 }
 for문과 if문을 써서 문제를 풀었다.
 4) 버블버블(31870번)
-# include <stdio.h>
+
+
+#include <stdio.h>
 int main()
 {
    int N;
@@ -164,4 +172,3 @@ int main() {
     return 0;
 }
 for문과 while문을 이용해 풀었고, 만약 10000번 돌려도 안 되면 No, 아니면 Yes를 출력하게 하였다.
-5.
