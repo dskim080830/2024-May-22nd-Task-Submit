@@ -1,5 +1,5 @@
-Emotion 9차시 동아리 과제
-1. c언어로 stack 구현하기
+# Emotion 9차시 동아리 과제
+### 1. c언어로 stack 구현하기
 ```
 #include <stdio.h>
 #define SIZE 1000 
@@ -59,7 +59,7 @@ int main(){
 ```
 우선 배열의 크기를 선언한 후, stack을 효율적으로 구현하기 위해 맨 위에 있는 값(비어 있는 값)은 -1로 설정한 후, check_full을 통해 빈 값이 size - 1보다 크면 가득 찼다고 출력하고, 아니면 0을 반환하게 하였다. 그리고 check_empty를 통해 first가 빈 값이면 스택이 비어있다고 출력하고, 아니면 0을 반환하게 하였다. 그리고 push를 통해 값을 넣게 하고, Stack을 통해 pop을 구현하였다. 
    
-2. 큐 구현
+### 2. c언어로 큐 구현
 ```
 #include <stdio.h>
 #define SIZE 100
@@ -97,3 +97,49 @@ int main() {
 }
 ```
 일단 배열 선언을 편하게 하기 위해 # define ~을 통해 배열의 크기를 선언한 후, 큐 배열을 선언한 후, 큐 앞 뒤에 빈 값을 표현하기 위해 front와 rear을 선언한 후 -1을 대입한다. 그리고 inque를 통해 rear와 size-1이 같은지를 보는 것은 꽉 찬 것인지 확인하는 것이고, deque는 front와 rear가 같은 지를 통해 비어있는지를 확인하는 것이다. 그리고 main에서 출력해보면 잘 구현이 된 것을 알 수 있다.
+### 3. c언어로 백터 구현하기
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int *data;
+    int size;
+    int capacity;
+} Vector;
+
+void vector_init(Vector *vector) {
+    vector->size = 0;
+    vector->capacity = 4;
+    vector->data = (int *)malloc(vector->capacity * sizeof(int));
+}
+
+void vector_add(Vector *vector, int value) {
+    if (vector->size == vector->capacity) {
+        vector->capacity *= 2;
+        vector->data = (int *)realloc(vector->data, vector->capacity * sizeof(int));
+    }
+    vector->data[vector->size++] = value;
+}
+
+void vector_free(Vector *vector) {
+    free(vector->data);
+}
+
+int main() {
+    Vector vector;
+    vector_init(&vector);
+
+    for (int i = 1; i <= 5; i++)
+        vector_add(&vector, i);
+
+    for (int i = 0; i < vector.size; i++)
+        printf("%d ", vector.data[i]);
+    printf("\n");
+
+    vector_free(&vector);
+    return 0;
+}
+```
+일단 백터를 구현하기 typedef struct를 통해 백터를 구현하기 위해 필요한 배열, 요소의 수, 최대로 가질 수 있는 요소의 수를 선언한 후, vector_init에서 배열 크기를 0으로 지정하여, 비어 있는 것을 나타내고, 수용 가능한 공간을 4로 지정하여 4개까지 들어올 수 있게 한후, malloc을 통해 4개에 대한 메모리 공간을 할당한다. 그리고 vector_add에서 데이터를 집어넣고 백터가 가득 차면 용량이 2개 늘어나게 하고, vector_free를 통해 메모리를 해제해주었다.
+* 참고 자료는 많아서 여기에 다 적기는 무리가 있어서 못 적었음에 대한 양해를 부탁드립니다.
